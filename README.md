@@ -1,1 +1,2 @@
-# React + + Redux + TypeScript + Vite
+# eCommerce 
+### React + Redux + TypeScript + Vite
