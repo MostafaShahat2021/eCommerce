@@ -9,11 +9,13 @@ import Products from '@pages/Products';
 import AboutUs from '@pages/AboutUs';
 import Login from '@pages/Login';
 import Regester from '@pages/Regester';
+import Error from '@pages/Error';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
