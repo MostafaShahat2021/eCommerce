@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap"
-import {Header, Footer} from "../../components/common"
+import {Header, Footer} from "@components/common"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './styles.module.css'
