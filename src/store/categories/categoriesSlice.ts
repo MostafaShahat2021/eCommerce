@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import actGetCategories from "./actCategories";
+import actGetCategories from "./act/actCategories";
 
 interface ICategoriesSlice {
   records: {id: number; title: string; prefix:string; img:string;}[]

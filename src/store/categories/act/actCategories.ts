@@ -6,7 +6,8 @@ type TResponse = {id: number; title: string; prefix:string; img: string}[];
 const actGetCategories = createAsyncThunk("categories/actGetCategories", async(_, thunkAPI) => {
   const {rejectWithValue} = thunkAPI;
   try {
-    const response = await axios.get<TResponse>('http://localhost:5005')
+    const response = await axios.get<TResponse>('http://localhost:5005/categories')
+    console.log(response.data);
     return response.data
   } catch (error) {
     if(axios.isAxiosError(error)) {
