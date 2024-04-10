@@ -3,7 +3,7 @@ import axios from "axios";
 
 type TResponse = {id: number; title: string; prefix:string; img: string}[];
 
-const actCategories = createAsyncThunk("categories/actGetCategories", async(_, thunkAPI) => {
+const actGetCategories = createAsyncThunk("categories/actGetCategories", async(_, thunkAPI) => {
   const {rejectWithValue} = thunkAPI;
   try {
     const response = await axios.get<TResponse>('http://localhost:5005')
@@ -17,4 +17,4 @@ const actCategories = createAsyncThunk("categories/actGetCategories", async(_, t
   }
 })
 
-export default actCategories;
+export default actGetCategories;
