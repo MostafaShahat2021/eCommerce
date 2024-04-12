@@ -26,7 +26,7 @@ const Categories = () => {
             <Category {...record} />
           </Col>
         ))
-      : 'There are no categories';
+      : <div><p>Opps!<br/>There are no categories to show</p></div>;
   return (
     <Container>
       <Row>{categoriesList}</Row>
