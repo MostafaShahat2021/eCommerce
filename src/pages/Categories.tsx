@@ -11,22 +11,32 @@ const Categories = () => {
   );
 
   useEffect(() => {
-    dispatch(actGetCategories());
-  }, [dispatch]);
+    if (!records.length) {
+      dispatch(actGetCategories());
+    }
+  }, [dispatch, records]);
 
   const categoriesList =
-    records.length > 0
-      ? records.map((record) => (
-          <Col
-            xs={6}
-            md={3}
-            key={record.id}
-            className="d-flex justify-content-center mb-5 mt-2"
-          >
-            <Category {...record} />
-          </Col>
-        ))
-      : <div><p>Opps!<br/>There are no categories to show</p></div>;
+    records.length > 0 ? (
+      records.map((record) => (
+        <Col
+          xs={6}
+          md={3}
+          key={record.id}
+          className="d-flex justify-content-center mb-5 mt-2"
+        >
+          <Category {...record} />
+        </Col>
+      ))
+    ) : (
+      <div>
+        <p>
+          Opps!
+          <br />
+          There are no categories to show
+        </p>
+      </div>
+    );
   return (
     <Container>
       <Row>{categoriesList}</Row>
