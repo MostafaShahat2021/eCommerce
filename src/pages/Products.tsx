@@ -5,9 +5,10 @@ import {
   actGetProductsByCategoryPrefix,
   productsCleanup,
 } from '@store/products/productsSlice';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { GridList } from '@components/common';
 import { Product } from '@components/eCommerce';
-import { Loading } from '@components/feedback'
+import { Loading } from '@components/feedback';
 
 const Products = () => {
   const params = useParams();
@@ -21,31 +22,13 @@ const Products = () => {
     };
   }, [dispatch, params]);
 
-  const productsList =
-    records.length > 0 ? (
-      records.map((record) => (
-        <Col
-          xs={6}
-          md={3}
-          key={record.id}
-          className="d-flex justify-content-center mb-5 mt-2"
-        >
-          <Product {...record} />
-        </Col>
-      ))
-    ) : (
-      <div>
-        <p>
-          Opps!
-          <br />
-          There are no categories to show
-        </p>
-      </div>
-    );
   return (
     <Container>
-      <Loading status ={loading} error={error}>
-        <Row>{productsList}</Row>
+      <Loading status={loading} error={error}>
+        <GridList
+          records={records}
+          renderItem={(record) => <Product {...record} />}
+        />
       </Loading>
     </Container>
   );

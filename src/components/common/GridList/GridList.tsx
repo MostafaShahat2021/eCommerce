@@ -1,11 +1,15 @@
-import { TCategory } from "@customTypes/category"
 import { Row, Col } from 'react-bootstrap';
 
-type GridListProps = {
-  records: TCategory[];
-  renderItem: (record:TCategory)=> React.ReactNode;
-}
-const GridList = ({records, renderItem}: GridListProps) => {
+type GridListProps<T> = {
+  records: T[];
+  renderItem: (record: T) => React.ReactNode;
+};
+
+type HasId = { id?: number };
+const GridList = <T extends HasId>({
+  records,
+  renderItem,
+}: GridListProps<T>) => {
   const categoriesList =
     records.length > 0 ? (
       records.map((record) => (
@@ -27,9 +31,7 @@ const GridList = ({records, renderItem}: GridListProps) => {
         </p>
       </div>
     );
-  return (
-    <Row>{categoriesList}</Row>
-  )
-}
+  return <Row>{categoriesList}</Row>;
+};
 
-export default GridList
+export default GridList;
