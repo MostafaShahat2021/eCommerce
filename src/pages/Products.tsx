@@ -7,7 +7,7 @@ import {
 } from '@store/products/productsSlice';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Product } from '@components/eCommerce';
-import { Laoding } from '@components/feedback'
+import { Loading } from '@components/feedback'
 
 const Products = () => {
   const params = useParams();
@@ -44,9 +44,9 @@ const Products = () => {
     );
   return (
     <Container>
-      <Laoding status ={loading} error={error}>
+      <Loading status ={loading} error={error}>
         <Row>{productsList}</Row>
-      </Laoding>
+      </Loading>
     </Container>
   );
 };

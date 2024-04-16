@@ -12,7 +12,7 @@ const actGetProductsByCtegoryPrefix = createAsyncThunk(
       const response = await axios.get<TResponse>(
         `http://localhost:5005/products?cat_prefix${prefix}`
       );
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {

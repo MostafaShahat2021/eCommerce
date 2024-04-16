@@ -1,2 +1,2 @@
-import Laoding from './Loading/Loading';
-export { Laoding };
+import Loading from './Loading/Loading';
+export { Loading };
