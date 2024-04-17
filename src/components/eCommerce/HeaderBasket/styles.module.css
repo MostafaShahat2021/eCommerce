@@ -6,13 +6,43 @@
 
 .basketQuantity {
   background-color: #0dcaf0;
-  height: 18px;
-  width: 18px;
+  height: 20px;
+  width: 23px;
   border-radius: 10px;
   text-align: center;
-  border: 1px solid;
+  border: 1px solid #0dcaf0;
   position: absolute;
-  top: -14px;
+  top: -16px;
   right: 5px;
   font-size: 12px;
+}
+
+.basketCart {
+  position: relative;
+}
+
+.pumpCartQuantity {
+  animation: pumping 300ms ease-out;
+}
+
+@keyframes pumping {
+  0% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(0.8);
+  }
+
+  30% {
+    transform: scale(1.1);
+  }
+
+  50% {
+    transform: scale(1.7);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
