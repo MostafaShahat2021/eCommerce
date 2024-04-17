@@ -5,27 +5,24 @@ import categories from './categories/categoriesSlice';
 import products from './products/productsSlice';
 import cart from './cart/cartSlice';
 
-const rootPresistConfig = {
-  key: 'root',
+const cartPresistConfig = {
+  key: 'cart',
   storage,
-  whiteList: ['cart'],
+  whiteList: ['items'],
 };
-
 const rootReducer = combineReducers({
   categories,
   products,
-  cart,
+  cart: persistReducer(cartPresistConfig, cart),
 });
 
-const persistedReducer = persistReducer(rootPresistConfig, rootReducer);
-
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
 });
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
 
-const persistor = persistStore(store)
-export {store, persistor};
+const persistor = persistStore(store);
+export { store, persistor };
