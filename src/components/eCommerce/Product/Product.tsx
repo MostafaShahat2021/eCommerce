@@ -8,7 +8,7 @@ import styles from "./styles.module.css";
 const { product, productImg, maximumNotice } = styles;
 
 const Product = memo(({ id, title, price, img, max, quantity }: TProduct) => {
-  console.log("run");
+  // console.log("run");
   const dispatch = useAppDispatch();
 
   const [isBtnDisabled, setIsBtnDisabled] = useState(false);
@@ -35,7 +35,7 @@ const Product = memo(({ id, title, price, img, max, quantity }: TProduct) => {
         <img src={img} alt={title} />
       </div>
       <h2 title={title}>{title}</h2>
-      <h3>{price} EGP</h3>
+      <h3>{price.toFixed(2)} EGP</h3>
       <p className={maximumNotice}>
         {quantityReachedToMax
           ? "You reached max limit"
