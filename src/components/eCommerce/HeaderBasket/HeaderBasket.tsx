@@ -3,7 +3,7 @@ import Logo from '../../../assets/svg/cart.svg?react';
 import styles from './styles.module.css';
 import { useAppSelector } from '@store/hooks';
 import { useEffect, useState } from 'react';
-const { basketContainer, basketQuantity, pumpCartQuantity } = styles;
+const { basketContainer, basketQuantity, pumpCartQuantity, basketCart } = styles;
 
 function HeaderBasket() {
   const [isAnimate, setIsAnimate] = useState(false);
@@ -25,8 +25,11 @@ function HeaderBasket() {
 
   return (
     <div className={basketContainer}>
+      <div className={basketCart}>
       <Logo title="basket icon" style={{ width: 40, height: 30 }} />
       <div className={quantityStyle}>{totalQuantity}</div>
+      </div>
+      <h3>Cart</h3>
     </div>
   );
 }
