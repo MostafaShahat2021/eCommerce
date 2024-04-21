@@ -6,12 +6,16 @@ import { TProduct } from "@customTypes/product";
 type TResponse = TProduct[]
 
 const actGetProductsByItems = createAsyncThunk("cart/actGetProductsByItems", async (_, thunkAPI) => {
-  const {rejectWithValue, getState} = thunkAPI
+  const {rejectWithValue, fulfillWithValue, getState} = thunkAPI
   const {cart} = getState() as RootState
 // console.log(cart.items);
 const itemsId = Object.keys(cart.items)
 const concatenatedItemsId = itemsId.map((el) => `id=${el}`).join("&")
 // console.log(concatenatedItemsId);
+
+if(!itemsId.length){
+  return fulfillWithValue([])
+}
 try {
   const response = await axios.get<TResponse>(`/products?${concatenatedItemsId}`)
   return response.data

@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { actGetProductsByItems } from '@store/cart/cartSlice';
 const Cart = () => {
   const dispatch = useAppDispatch()
-  const {items} = useAppSelector((state) => state.cart)
+  const {} = useAppSelector((state) => state.cart)
   useEffect(() => {
     dispatch(actGetProductsByItems())
   }, [dispatch])
