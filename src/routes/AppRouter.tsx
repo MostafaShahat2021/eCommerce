@@ -10,6 +10,7 @@ import AboutUs from '@pages/AboutUs';
 import Login from '@pages/Login';
 import Regester from '@pages/Regester';
 import Error from '@pages/Error';
+import Cart from '@pages/Cart';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +30,10 @@ const router = createBrowserRouter([
         path: 'categories/products/:prefix',
         element: <Products />,
         loader: ({ params }) => {
-          if (typeof  params.prefix !== 'string' ||
-            !/^[a-z]+$/.test(params.prefix)) {
+          if (
+            typeof params.prefix !== 'string' ||
+            !/^[a-z]+$/.test(params.prefix)
+          ) {
             throw new Response('Bad Request', {
               statusText: 'Category not found',
               status: 400,
@@ -50,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: 'regester',
         element: <Regester />,
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
       },
     ],
   },
