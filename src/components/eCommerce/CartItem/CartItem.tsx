@@ -1,13 +1,14 @@
 import { Form, Button } from 'react-bootstrap';
 import { TProduct } from '@customTypes/product';
 import styles from './styles.module.css';
+import { memo } from 'react';
 
 const { cartItem, product, productImg, productInfo, cartItemSelection } =
   styles;
 
 type CartItemProps = TProduct & {changeQuantityHandeler: (id: number, quantity: number) => void;};
 
-const CartItem = ({ title, img, price, max, quantity, id, changeQuantityHandeler }: CartItemProps) => {
+const CartItem = memo(({ title, img, price, max, quantity, id, changeQuantityHandeler }: CartItemProps) => {
   console.log("render");
   const renderOptions = Array(max)
     .fill(0)
@@ -49,6 +50,6 @@ const CartItem = ({ title, img, price, max, quantity, id, changeQuantityHandeler
       </div>
     </div>
   );
-};
+});
 
 export default CartItem;
